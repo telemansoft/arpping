@@ -1,11 +1,10 @@
 {
   "name": "arpping",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Discover and search for internet-connected devices (locally) using ping and arp",
   "main": "index.js",
   "dependencies": {
     "child_process": "^1.0.2",
-    "npm": "^6.4.1",
     "os": "^0.1.1"
   },
   "devDependencies": {},

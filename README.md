@@ -1,3 +1,5 @@
+⚠️⚠️⚠️ THIS FORK REMOVES VULNERABLE PACKAGES (no features added) ⚠️⚠️⚠️
+
 # arpping
 Discover and search for internet-connected devices (locally) using ping and arp
 
@@ -53,7 +55,7 @@ var arpping = require('arpping')();
 
 arpping.discover(null, (err, hosts) => {
   if (err) return console.log(err);
-  console.log(JSON.stringify(hosts, null, 4)); 
+  console.log(JSON.stringify(hosts, null, 4));
 });
 
 /* Example output
@@ -203,8 +205,8 @@ var arpping = require('arpping')();
 
 // must specify an array, unlike ping
 var ipArray = [
-  "192.168.0.3", 
-  "192.168.0.12", 
+  "192.168.0.3",
+  "192.168.0.12",
   "192.168.0.24"
 ];
 arpping.arp(ipArray, (err, found, missing) => {
