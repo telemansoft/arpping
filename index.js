@@ -66,13 +66,15 @@ function arpDevices(range, callback) {
         checked = 0;
     
     range.forEach(function(ip) {
-        exec('arp ' + ip, (err, stdout, stderr) => {
+        exec(osType == 'Linux' ? 'arp ' : 'arp -a ' + ip, (err, stdout, stderr) => {
             checked++;
-            if (err || stdout.indexOf('no entry') > -1) missing.push(ip);
+            if (err || stdout.toLowerCase().indexOf('no') > -1) missing.push(ip);
             else {
                 var host = {};
                 host.ip = ip;
-                host.mac = (osType == 'Linux') ? stdout.split('\n')[1].replace(/ +/g, ' ').split(' ')[2]: stdout.split(' ')[3];
+                host.mac = (osType == 'Linux') ? 
+                  stdout.split('\n')[1].replace(/ +/g, ' ').split(' ')[2]
+                : stdout.split('\n')[3].replace(/ +/g, ' ').replace('-', ':').split(' ')[2]
                 var known = macLookup(host.mac);
                 if (known) host.type = known;
                 if (ip == arpping.myIP) host.isYourDevice = true;
