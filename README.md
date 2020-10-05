@@ -246,3 +246,6 @@ The following ip address(es) returned no results:
 
 ## Contributing
 I made this module on my own. Any help/feedback is appreciated.
+
+在Windows下运行的一些bug修复
+modified by telemansoft, 2020.10.05
