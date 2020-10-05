@@ -25,7 +25,11 @@ const addresses = {
     ],
     "Roku": [
         "20:f5:43"
-    ]
+    ],
+    "eWeLink": [
+        "dc:4f:22",
+        "2c:f4:32"
+    ]    
 }
 
 /**
@@ -36,7 +40,8 @@ const addresses = {
 */
 
 function macLookup(mac, type) {
-    var leading = mac.split(':').slice(0, 3).join(':');
+    //var leading = mac.split(':').slice(0, 3).join(':');
+    var leading = (mac || '').split(':').slice(0, 3).join(':');
     
     if (type && addresses[type]) {
         if (addresses[type].indexOf(leading) > -1) return type;
